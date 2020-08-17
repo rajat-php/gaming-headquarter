@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Socialite, Auth;
 
 class RegisterController extends Controller
 {
@@ -69,5 +70,95 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+     * Login with Google.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+
+    public function googleRedirect()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    /**
+     * handle google callback function
+     */
+    public function googleCallback()
+    {
+        try {
+            $googleUser = Socialite::driver('google')->user();
+            $user = User::where('email', $googleUser->getEmail())->first();
+            if ($user) {
+                Auth::loginUsingId($user->id);
+            }
+            else{
+                $user = User::create([
+                    'name'              => $googleUser->name,
+                    'email'             => $googleUser->email,
+                    'provider'          => 'google',
+                    'provider_id'       => $googleUser->id,
+                    'profile_picture'   => $googleUser->avatar,
+                    'password'          => Hash::make('12345678'),
+                    'email_verified_at' => date('Y-m-d H:i:s'),
+                ]);
+
+                Auth::loginUsingId($user->id);
+            }       
+
+        } catch (\Exception $e) {
+            return redirect()->route('login')->with('errormessage', 'Login failed, please try again');
+        }
+
+        return redirect()->route('home');
+    }
+
+    /**
+     * Login with Facebook.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+
+    public function facebookRedirect()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * handle facebook callback function
+     */
+    public function facebookCallback()
+    {
+        try {
+            $facebookUser = Socialite::driver('facebook')->user();
+            //echo "<pre>"; print_r($facebookUser); die;
+            $user = User::where('email', $facebookUser->getEmail())->first();
+
+            if ($user) {
+                Auth::loginUsingId($user->id);
+            }
+            else{
+                $user = User::create([
+                    'name'              => $facebookUser->name,
+                    'email'             => $facebookUser->email,
+                    'provider'          => 'facebook',
+                    'provider_id'       => $facebookUser->id,
+                    'profile_picture'   => $facebookUser->avatar,
+                    'password'          => Hash::make('12345678'),
+                    'email_verified_at' => date('Y-m-d H:i:s'),
+                ]);
+
+                Auth::loginUsingId($user->id);
+            }       
+
+        } catch (\Exception $e) {
+            return redirect()->route('login')->with('errormessage', 'Login failed, please try again');
+        }
+
+        return redirect()->route('home');
     }
 }
