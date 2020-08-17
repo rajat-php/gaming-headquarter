@@ -5,6 +5,7 @@
 	<div class="container">
         <h2> Upcoming Tournaments </h2>
 		<div class="main">
+
             <div class="view view-first">
                 <img src="images/7.jpg" />
                 <div class="mask">
@@ -12,25 +13,33 @@
                     <h5>July 27, 12:00PM</h5>
                     <a href="#" class="info">Join</a>
                 </div>
-                <div> PUBG SOLO </div>
+                <div class="gametype">
+                    <h4>PUBG SOLO </h4>
+                </div>
             </div>
             
             <div class="view view-first">
-                <img src="images/8.jpg" />
+                <img src="images/7.jpg" />
                 <div class="mask">
-                    <h2>₹100/ - Entry</h2>
+                    <h2>Free Entry</h2>
                     <h5>July 27, 12:00PM</h5>
                     <a href="#" class="info">Join</a>
+                </div>
+                <div class="gametype">
+                    <h4>PUBG SOLO </h4>
                 </div>
             </div>  
             <div class="view view-first">
-                <img src="images/8.jpg" />
+                <img src="images/7.jpg" />
                 <div class="mask">
-                    <h2>₹50/ - Entry</h2>
+                    <h2>Free Entry</h2>
                     <h5>July 27, 12:00PM</h5>
                     <a href="#" class="info">Join</a>
                 </div>
-            </div>  
+                <div class="gametype">
+                    <h4>PUBG SOLO </h4>
+                </div>
+            </div> 
             <div class="view view-first">
                 <img src="images/4.jpg" />
                 <div class="mask">

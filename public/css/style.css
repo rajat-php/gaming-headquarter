@@ -668,19 +668,19 @@ ul.game-list li a:hover {
 }
 
 .view {
-	width: 300px;
-	height: 200px;
-	margin: 10px;
-	float: left;
-	border: 10px solid #fff;
-	overflow: hidden;
-	position: relative;
-	text-align: center;
-	-webkit-box-shadow: 1px 1px 2px #e6e6e6;
-	-moz-box-shadow: 1px 1px 2px #e6e6e6;
-	box-shadow: 1px 1px 2px #e6e6e6;
-	cursor: default;
-	background: #fff url(../images/bgimg.jpg) no-repeat center center;
+    width: 300px;
+    height: 200px;
+    margin: 5px;
+    float: left;
+    border: 5px solid #fff;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+    -moz-box-shadow: 1px 1px 2px #e6e6e6;
+    box-shadow: 1px 1px 2px #e6e6e6;
+    background: #fff url(../images/bgimg.jpg) no-repeat center center;
+    display: inline-table;
 }
 
 .view .mask,
@@ -844,3 +844,14 @@ ul.game-list li a:hover {
 }
 
 /*-- Games Page Ends Here --*/
+
+/* Custom CSS starts here */
+
+.mask h5 {
+    color: floralwhite;
+}
+
+.gametype h4 {
+    color: black;
+    font-size: small;
+}
