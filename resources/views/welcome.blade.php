@@ -35,6 +35,7 @@
                     <h2>Free Entry</h2>
                     <h5>July 27, 12:00PM</h5>
                     <a href="#" class="info">Join</a>
+                    <p>This is a Pubg Solo match in Erangle. Be ready at sharp 12:00 AM guys!</p>
                 </div>
                 <div class="gametype">
                     <h4>PUBG SOLO </h4>
