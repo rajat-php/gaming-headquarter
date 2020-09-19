@@ -121,12 +121,12 @@ input[type=submit]:hover {
             </div>
         </div>
         <div class="social">
-            <a href="{{ route('auth.facebook') }}" class="fb btn">
+            <!-- <a href="{{ route('auth.facebook') }}" class="fb btn">
                 <i class="fab fa-facebook-square"></i> Login with Facebook
             </a>
             <a href="#" class="twitter btn">
                 <i class="fab fa-twitter-square"></i> Login with Twitter
-            </a>
+            </a> -->
             <a href="{{ route('auth.google') }}" class="google btn">
             <i class="fab fa-google"></i> Login with Google
             </a>
