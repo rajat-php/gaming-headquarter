@@ -3,7 +3,7 @@
 
 <div class="games">
 	<div class="container">
-        <h2> Upcoming Tournaments </h2>
+        <h2> Upcoming Tournaments-New </h2>
 		<div class="main">
 
             <div class="view view-first">
