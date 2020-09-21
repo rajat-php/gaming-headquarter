@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Socialite, Auth;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -65,10 +67,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $time = Carbon::now()->timestamp;
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name'      => $data['name'],
+            'email'     => $data['email'],
+            'password'  => Hash::make($data['password']),
+            'pubg_id'   => $data['pubg_id'],
+            'role_id'   => Role::USER_ROLE_ID,
+            'username'  => $data['name'].$time,
         ]);
     }
 
@@ -96,6 +102,7 @@ class RegisterController extends Controller
                 Auth::loginUsingId($user->id);
             }
             else{
+                $time = Carbon::now()->timestamp;
                 $user = User::create([
                     'name'              => $googleUser->name,
                     'email'             => $googleUser->email,
@@ -104,6 +111,9 @@ class RegisterController extends Controller
                     'profile_picture'   => $googleUser->avatar,
                     'password'          => Hash::make('12345678'),
                     'email_verified_at' => date('Y-m-d H:i:s'),
+                    'role_id'           => Role::USER_ROLE_ID,
+                    'username'          => $googleUser->name.$time,
+
                 ]);
 
                 Auth::loginUsingId($user->id);
