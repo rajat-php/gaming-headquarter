@@ -25,7 +25,7 @@ background-image: linear-gradient(15deg, #93547a 0%, #80d0c7 100%);
 				@auth
 				<li class="nav-item dropdown profile_login">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" title="User Login ">
-						<figure> <img src="{{ Auth::user()->profile_picture_path }}" alt="profile"></figure>
+						<figure> <img src="{{ Auth::user()->profile_picture_path }}" alt="profile" width="150px;"></figure>
 						<span class="user_name">{{ Auth::user()->name }}</span> <i class="fa fa-caret-down" aria-hidden="true"></i>
 					</a>
 					<div class="dropdown-menu custom_drop_down" aria-labelledby="navbarDropdownMenuLink">
