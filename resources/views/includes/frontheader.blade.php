@@ -5,7 +5,7 @@
 }
 
 .bg-custom-2 {
-background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+background-image: linear-gradient(15deg, #93547a 0%, #80d0c7 100%);
 }
 </script>
 @endsection
@@ -29,9 +29,9 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 						<span class="user_name">{{ Auth::user()->name }}</span> <i class="fa fa-caret-down" aria-hidden="true"></i>
 					</a>
 					<div class="dropdown-menu custom_drop_down" aria-labelledby="navbarDropdownMenuLink">
+						
+							<a class="dropdown-item" href="#">Manage Profile</a>
 						@if (!Auth::user()->isUser())
-							<a class="dropdown-item" href="{{ route('profile.index') }}">Manage Profile</a>
-						@else
 							<a class="dropdown-item" href="#">Dashboard</a>
 						@endif
 						<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('header-logout-form').submit();"> Logout </a>
@@ -72,13 +72,13 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 			</ul>
 			
 			<div class="clearfix"></div>
-			<script>
+			<!-- <script>
 				$( "span.menu" ).click(function() {
 				  $( ".navigation" ).slideToggle( "slow", function() {
 				    // Animation complete.
 				  });
 				});
-			</script>
+			</script> -->
 
 		</div>
 		<div class="clearfix"></div>

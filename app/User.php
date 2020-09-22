@@ -27,6 +27,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = ['profile_picture_path'];
+
+    /**
+     * Get the user's profile picture full path.
+     *
+     * @return string
+     */
+    public function getProfilePicturePathAttribute()
+    {
+        if (preg_match('(https://|http://)', $this->profile_picture) === 1) {
+            return $this->profile_picture;
+        }
+        return $this->profile_picture ? url("storage/user/profile/$this->profile_picture") : asset('assets/images/user.png');
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
